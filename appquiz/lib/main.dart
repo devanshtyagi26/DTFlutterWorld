@@ -25,6 +25,8 @@ class QuizApp extends StatefulWidget {
 class _QuizAppState extends State<QuizApp> {
   int _questionIndex = 0;
   int _score = 0;
+  int _currentIndex = 0;
+  int _scoreI = 0;
 
   final List<Map<String, Object>> _questions = [
     {
@@ -116,7 +118,10 @@ class _QuizAppState extends State<QuizApp> {
                     as List<Map<String, Object>>,
                 answerQuestion: _answerQuestion,
               )
-            : Result(score: _score, resetQuiz: _resetQuiz),
+            : Result(
+                score: _score,
+                totalQuestions: _questions.length,
+                resetQuiz: _resetQuiz),
       ),
       bottomNavigationBar: BottomAppBar(
         child: Container(
@@ -240,18 +245,28 @@ class Answer extends StatelessWidget {
 
 class Result extends StatelessWidget {
   final int score;
+  final int totalQuestions;
   final VoidCallback resetQuiz;
 
-  Result({required this.score, required this.resetQuiz});
+  Result({
+    required this.score,
+    required this.totalQuestions,
+    required this.resetQuiz,
+  });
 
   @override
   Widget build(BuildContext context) {
+    double percentage = (score / 10);
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
           'Your Score: $score',
           style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+        ),
+        Text(
+          'Correct questions: $percentage out of $totalQuestions',
+          style: TextStyle(fontSize: 18),
         ),
         SizedBox(height: 20),
         ElevatedButton(
