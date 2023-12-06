@@ -26,7 +26,6 @@ class _QuizAppState extends State<QuizApp> {
   int _questionIndex = 0;
   int _score = 0;
   int _currentIndex = 0;
-  int _scoreI = 0;
 
   final List<Map<String, Object>> _questions = [
     {
