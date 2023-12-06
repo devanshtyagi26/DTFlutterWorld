@@ -33,7 +33,7 @@ class _QuizAppState extends State<QuizApp> {
         {'text': 'Venus', 'score': 0},
         {'text': 'Mars', 'score': 10},
         {'text': 'Jupiter', 'score': 0},
-        {'text': 'Saturn', 'score': 0},
+        {'text': 'Uranus', 'score': 0},
       ],
     },
     {
@@ -147,6 +147,18 @@ class _QuizAppState extends State<QuizApp> {
           ),
         ),
       ),
+      persistentFooterButtons: [
+        Padding(
+          padding: const EdgeInsets.all(1.0),
+          child: Text(
+            'Made by - Devansh Tyagi',
+            style: TextStyle(
+              // Your desired text color
+              fontSize: 15,
+            ),
+          ),
+        ),
+      ],
     );
   }
 }
