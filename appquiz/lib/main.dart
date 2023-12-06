@@ -25,7 +25,6 @@ class QuizApp extends StatefulWidget {
 class _QuizAppState extends State<QuizApp> {
   int _questionIndex = 0;
   int _score = 0;
-  int _currentIndex = 0;
 
   final List<Map<String, Object>> _questions = [
     {
@@ -255,7 +254,7 @@ class Result extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double percentage = (score / 10);
+    int percentage = (score ~/ 10);
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
